@@ -10,7 +10,9 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <h2>Turn your text secret-er</h2>
+      <h2>
+        Make your text secret<i>er</i>
+      </h2>
       <p>Everything but punctuation becomes *. **'* *******!</p>
 
       <label>
@@ -28,7 +30,7 @@ const IndexPage = () => {
 
       {originalText.length > 0 && (
         <div>
-          Your secret-ish text is
+          Your <i>secret-ish</i> text is
           <br />
           {originalText.replace(/[a-zA-Z\u00C0-\u00FF]{1}/g, "*")}
           <br />
