@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const IndexPage = () => {
-  const [originalText, setOriginalText] = useState("")
+  const [secretText, setSecretText] = useState("")
 
   return (
     <Layout>
@@ -20,21 +20,25 @@ const IndexPage = () => {
         <textarea
           style={{ minWidth: "90vw" }}
           name="originalText"
-          onChange={e => setOriginalText(e.target.value)}
+          onChange={e =>
+            setSecretText(
+              e.target.value.replace(/[a-zA-Z\u00C0-\u00FF]{1}/g, "*")
+            )
+          }
         />
       </label>
       <br />
-      {originalText.length > 0 && `${originalText.length} characters typed`}
+      {secretText.length > 0 && `${secretText.length} characters typed`}
       <br />
       <hr />
 
-      {originalText.length > 0 && (
+      {secretText.length > 0 && (
         <div>
           Your <i>secret-ish</i> text is
           <br />
-          {originalText.replace(/[a-zA-Z\u00C0-\u00FF]{1}/g, "*")}
+          {secretText}
           <br />
-          <CopyToClipboard text={originalText.replace(/[a-zA-Z\u00C0-\u00FF]{1}/g, "*")}>
+          <CopyToClipboard text={secretText}>
             <button>Copy</button>
           </CopyToClipboard>
           <hr />
