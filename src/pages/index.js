@@ -34,7 +34,7 @@ const IndexPage = () => {
           <br />
           {originalText.replace(/[a-zA-Z\u00C0-\u00FF]{1}/g, "*")}
           <br />
-          <CopyToClipboard text={originalText.replace(/\w{1}/g, "*")}>
+          <CopyToClipboard text={originalText.replace(/[a-zA-Z\u00C0-\u00FF]{1}/g, "*")}>
             <button>Copy</button>
           </CopyToClipboard>
           <hr />
